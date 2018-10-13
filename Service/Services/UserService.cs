@@ -18,16 +18,11 @@ namespace Service.Services
 
     public class UserService : IUserService
     {
-        private IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
         public UserService()
         {
             _userRepository = new UserRepository();
-        }
-
-        public UserService(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
         }
 
         public IEnumerable<User> GetAll()

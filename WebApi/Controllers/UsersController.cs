@@ -1,6 +1,5 @@
 ﻿using HelloMVC.Models;
 using Service.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,13 +8,14 @@ using System.Web.Http;
 
 namespace WebApi.Controllers
 {
+    [RoutePrefix("User")]
     public class UsersController : ApiController
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
 
-        public UsersController()
+        public UsersController(IUserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
 
         [HttpGet]
